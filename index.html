@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor de bases</title>
+  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <main class="principal">
+    <div class="titulo_geral">
+    <h1 class="principal__title">Conversor de Bases Numericas.</h1>
+    </div>
+    <div class="tudo">
+    <section class="principal__convert">
+      <form class="principal__convert___form" action="">
+        <div>
+          <label for="number">Numero</label>
+          <input type="text" name="number" id="number" data-js="number" pattern="^[A-E0-9]*$" placeholder="Digite o numero. "  required>
+        </div>
+        <div>
+          <label for="base">Base</label>
+          <select name="base" id="base" data-js="base" required class="">
+            <option value="">Escolha uma base numerica</option>
+            <option value="2">Binario - base 2</option>
+            <option value="8">Octagonal - base 8</option>
+            <option value="10">Decimal - base 10</option>
+            <option value="16">Hexadecimal - base 16</option>
+          </select>
+        </div>
+        <div>
+          <label for="convert">Escolha a base que será convertida</label>
+          <select name="convert" id="convert" data-js="convert" required >
+            <option value="">Escolha uma base numerica</option>
+            <option value="2">Binario - base 2</option>
+            <option value="8">Octagonal - base 8</option>
+            <option value="10">Decimal - base 10</option>
+            <option value="16">Hexadecimal - base 16</option>
+          </select>
+        </div>
+        <button class="botao" type="submit">Converter</button>
+      </form>
+    </section>
+  </div>
+  </main>
+</body>
+<script type="module" src="/assets/js/convert.js"></script>
+</html>
