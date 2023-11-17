@@ -14,9 +14,13 @@
 .titulo_geral {
     margin-top: 15%;
     display: flex;
-    justify-content: center;
+    text-align: center;
     font-size: 48px;
     margin-bottom: 1rem;
+    margin-right: 15%;
+}
+.principal__title{
+    font-size: 60px;
 }
 
 .tudo {
