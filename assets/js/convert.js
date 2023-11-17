@@ -1,3 +1,4 @@
+//Importando funções e classes
 import  ConvertSimple  from "./ConvertSimple.js";
 import ConvertHex from "./convertHex.js";
 import ConvertHexToTen from "./convertHexToTen.js";
@@ -5,20 +6,30 @@ import ConvertToTen from "./convertToTen.js";
 import SendMsg from "./msg.js";
 import pattern  from "./pattern.js";
 
+//Capturando elementos html usados no codigo
 const form = document.querySelector(".principal__convert___form")
 const number = document.querySelector("[data-js='number']")
 const base = document.querySelector("[data-js='base']")
 const convert = document.querySelector("[data-js='convert']")
 
+//Criando um ouvinte no formulario
 form.addEventListener("submit",(event)=>{ 
+  //previnindo evento padrão do crome
   event.preventDefault()
+  //Captura o elemento html com a classe result
   const DivResult = document.querySelector('.result')
+  //Remove o elemento html com a classe result se ele existir
   if(DivResult !== null){
    DivResult.remove()
   }
+  //Executa um bloco diferente dependendo da base inicial do numero 
   if (base.value === '10'){
+    //Cria um novo objeto pattern com o valor de number.value
     const newNum10 = new pattern(number.value)
+    //Verifica se o numero pertence a base
     if (pattern.base10(newNum10) !== null) {
+      //Executa um bloco de codigo diferente pra cada valor de base  
+      //Converte o numero pra base escolhida
       switch (convert.value) {
         case "2":
           ConvertSimple(parseInt(number.value),parseInt(convert.value),parseInt(base.value),number.value)
@@ -37,12 +48,15 @@ form.addEventListener("submit",(event)=>{
           break
       }
     } else{
+        //Caso o codigo não pertença a base é mandado um erro
         SendMsg(`O numero ${number.value} não corresponde a base 10`)
     }
-    
   } else {
+    //Cria uma variavel para armazenar o numero convertido pra base 10
     let numToTen = 0
+    //Uma variavel que serve de condicional
     let numVali = true
+    //Executa um bloco de codigo diferente pra cada valor de base e verifica se o numero pertence a base, caso pertença converte ele pra base 10 
     switch (base.value) {
       case "2":
         let newNum02 = new pattern(number.value)
@@ -69,8 +83,10 @@ form.addEventListener("submit",(event)=>{
         }
         break
       default:
+        //Manda uma mensagem de erro pro usuario
         SendMsg(`Base indefinida ou sem função para conversão.`)
     }
+    //Converte o numero pra base escolhida pelo usuario
     if (numVali === true) {
       switch (convert.value) {
         case "2":
@@ -90,6 +106,7 @@ form.addEventListener("submit",(event)=>{
           break
       }
     } else {
+      //Manda uma mensagem de erro pro usuario
       SendMsg("Este número não condiz com a base escolhida.")
     }
   }

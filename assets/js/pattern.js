@@ -1,3 +1,5 @@
+//Cria classe verificadora com metodos de verificão usando regex
+//Cada metodo analisa a string e se o numero não pertencer a base retorna null 
 class pattern {
 
   constructor (number, base){
